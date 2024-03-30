@@ -21,6 +21,7 @@ do_configure() {
 			x86_64*) _qt_arch=x86_64;;
 			aarch64*) _qt_arch=arm64;;
 			arm*) _qt_arch=arm;;
+			m68k*) _qt_arch=m68k;;
 			mips*) _qt_arch=mips;;
 			ppc64*) _qt_arch=power64;;
 			ppc*) _qt_arch=power;;

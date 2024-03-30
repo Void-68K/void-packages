@@ -336,6 +336,7 @@ get_endian() {
         armv6l)   echo "le";;
         armv7l)   echo "le";;
         i686)     echo "le";;
+        m68k)     echo "be";;
         mipsel*)  echo "le";;
         mips*)    echo "be";;
         ppc*le)   echo "le";;
@@ -364,6 +365,7 @@ get_wordsize() {
         armv6l)   echo "32";;
         armv7l)   echo "32";;
         i686)     echo "32";;
+        m68k)     echo "32";;
         mipsel*)  echo "32";;
         mips*)    echo "32";;
         ppc64*)   echo "64";;

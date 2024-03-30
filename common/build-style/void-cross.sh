@@ -190,6 +190,7 @@ _void_cross_build_kernel_headers() {
 		arm*) arch=arm ;;
 		riscv*) arch=riscv ;;
 		s390*) arch=s390 ;;
+		m68k*) arch=m68k ;;
 		*) msg_error "Unknown Linux arch for ${tgt}\n" ;;
 	esac
 

@@ -130,6 +130,8 @@ case "$XBPS_TARGET_MACHINE" in
 	ppc64le-musl) _triplet="powerpc64le-linux-musl";;
 	ppc64) _triplet="powerpc64-linux-gnu";;
 	ppc64-musl) _triplet="powerpc64-linux-musl";;
+	m68k) _triplet="m68k-linux-gnu";;
+	m68k-musl) _triplet="m68k-linux-musl";;
 	mips-musl) _triplet="mips-linux-musl";;
 	mipshf-musl) _triplet="mips-linux-muslhf";;
 	mipsel-musl) _triplet="mipsel-linux-musl";;

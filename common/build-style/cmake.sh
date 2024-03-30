@@ -27,6 +27,7 @@ _EOF
 			aarch64*) _CMAKE_SYSTEM_PROCESSOR=aarch64 ;;
 			arm*) _CMAKE_SYSTEM_PROCESSOR=arm ;;
 			mips*) _CMAKE_SYSTEM_PROCESSOR=mips ;;
+			m68k*) _CMAKE_SYSTEM_PROCESSOR=m68k ;;
 			ppc64le*) _CMAKE_SYSTEM_PROCESSOR=ppc64le ;;
 			ppc64*) _CMAKE_SYSTEM_PROCESSOR=ppc64 ;;
 			ppcle*) _CMAKE_SYSTEM_PROCESSOR=ppcle ;;

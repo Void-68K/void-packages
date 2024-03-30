@@ -5,7 +5,7 @@ revision=1
 build_style=gnu-configure
 configure_args="--with-pic --enable-pcre2-16 --enable-pcre2-32
 --enable-pcre2test-libreadline --enable-pcre2grep-libz --enable-pcre2grep-libbz2
---enable-newline-is-anycrlf --enable-jit --enable-static"
+--enable-newline-is-anycrlf --enable-static"
 makedepends="zlib-devel bzip2-devel readline-devel"
 short_desc="Perl Compatible Regular Expressions (2nd version)"
 maintainer="Enno Boland <gottox@voidlinux.org>"
@@ -14,6 +14,12 @@ homepage="https://www.pcre.org/"
 changelog="https://raw.githubusercontent.com/PCRE2Project/pcre2/master/NEWS"
 distfiles="https://github.com/PhilipHazel/pcre2/releases/download/pcre2-${version}/pcre2-${version}.tar.bz2"
 checksum=8d36cd8cb6ea2a4c2bb358ff6411b0c788633a2a45dabbf1aeb4b701d1b5e840
+
+pre_configure() {
+	if [ "${XBPS_TARGET_MACHINE%-musl}" != "m68k" ]; then
+		configure_args+=" --enable-jit"
+	fi
+}
 
 post_install() {
 	vlicense LICENCE

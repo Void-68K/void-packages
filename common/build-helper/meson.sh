@@ -23,6 +23,10 @@ case "$XBPS_TARGET_MACHINE" in
 	i686*)
 		_MESON_CPU_FAMILY=x86
 		;;
+	m68k*)
+		_MESON_TARGET_ENDIAN=big
+		_MESON_CPU_FAMILY=m68k
+		;;
 	ppc64le*)
 		_MESON_CPU_FAMILY=ppc64
 		;;

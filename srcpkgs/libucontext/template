@@ -18,6 +18,7 @@ case "${XBPS_TARGET_MACHINE}" in
 	arm*)     _luctx_arch="arm"     ;;
 	ppc64*)   _luctx_arch="ppc64"   ;;
 	ppc*)     _luctx_arch="ppc"     ;;
+	m68k*)    _luctx_arch="m68k"  ;;
 	mips*64*) _luctx_arch="mips64"  ;;
 	mips*)    _luctx_arch="mips"    ;;
 	riscv64*) _luctx_arch="riscv64" ;;

@@ -42,6 +42,7 @@ case $XBPS_TARGET_MACHINE in
 	ppcle*) configure_args+=" linux-ppcle";;
 	ppc*) configure_args+=" linux-ppc";;
 	arm*) configure_args+=" linux-armv4";;
+	m68k*) configure_args+=" linux-m68k";;
 	mips*) configure_args+=" linux-mips32 -mips32";;
 	riscv64*) configure_args+=" linux64-riscv64";;
 	*) broken="$XBPS_TARGET_MACHINE";;

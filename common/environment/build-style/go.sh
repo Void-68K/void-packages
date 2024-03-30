@@ -1,7 +1,7 @@
 if [ -z "$hostmakedepends" -o "${hostmakedepends##*gcc-go-tools*}" ]; then
 	# gc compiler
 	if [ -z "$archs" ]; then
-		archs="aarch64* armv[567]* i686* x86_64* ppc64le* riscv64*"
+		archs="aarch64* armv[567]* i686* x86_64* m68k* ppc64le* riscv64*"
 	fi
 	hostmakedepends+=" go"
 	nopie=yes
@@ -9,7 +9,7 @@ else
 	# gccgo compiler
 	if [ -z "$archs" ]; then
 		# we have support for these in our gcc
-		archs="aarch64* armv[567]* i686* x86_64* ppc64* riscv64*"
+		archs="aarch64* armv[567]* i686* x86_64* m68k* ppc64* riscv64*"
 	fi
 	if [ "$CROSS_BUILD" ]; then
 		# target compiler to use; otherwise it'll just call gccgo
@@ -27,6 +27,7 @@ case "$XBPS_TARGET_MACHINE" in
 	ppc64le*) export GOARCH=ppc64le;;
 	ppc64*) export GOARCH=ppc64;;
 	ppc*) export GOARCH=ppc;;
+	m68k*) export GOARCH=m68k;;
 	mipsel*) export GOARCH=mipsle;;
 	mips*) export GOARCH=mips;;
 	riscv64*) export GOARCH=riscv64;;
