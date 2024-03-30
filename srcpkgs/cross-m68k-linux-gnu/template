@@ -26,7 +26,6 @@ checksum="ae9a5789e23459e59606e6714723f2d3ffc31c03174191ef0d015bdf06007450
  2ca1f17051a430f6fed1196e4952717507171acfd97d96577212502703b25deb"
 nocross=yes
 
-cross_gcc_skip_go=yes
 cross_glibc_cflags="-O2 -Wno-error -m68020-40"
 
 if [ "$XBPS_TARGET_MACHINE" = "m68k" ]; then
