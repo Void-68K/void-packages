@@ -185,6 +185,7 @@ _void_cross_build_kernel_headers() {
 	case "$tgt" in
 		x86_64*|i686*) arch=x86 ;;
 		powerpc*) arch=powerpc ;;
+		m68k*) arch=m68k ;;
 		mips*) arch=mips ;;
 		aarch64*) arch=arm64 ;;
 		arm*) arch=arm ;;
@@ -347,6 +348,7 @@ _void_cross_build_libucontext() {
 		i686*) arch=x86 ;;
 		powerpc64*) arch=ppc64 ;;
 		powerpc*) arch=ppc ;;
+		m68k*) arch=m68k ;;
 		mips*64*) arch=mips64 ;;
 		mips*) arch=mips ;;
 		aarch64*) arch=aarch64 ;;
