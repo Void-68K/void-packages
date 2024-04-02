@@ -29,6 +29,7 @@ case "${XBPS_TARGET_MACHINE}" in
 	ppc64le*) export GOARCH=ppc64le ;;
 	ppc64*) export GOARCH=ppc64 ;;
 	ppc*) export GOARCH=ppc ;;
+	m68k*) export GOARCH=mipsle ;;
 	mipsel*) export GOARCH=mipsle ;;
 	mips*) export GOARCH=mips ;;
 	riscv64*) export GOARCH=riscv64 ;;
