@@ -1,7 +1,7 @@
 # Template file for 'chromium'
 pkgname=chromium
 # See https://chromiumdash.appspot.com/releases?platform=Linux for the latest version
-version=123.0.6312.86
+version=126.0.6478.55
 revision=1
 archs="i686* x86_64* aarch64* armv7l*"
 hostmakedepends="
@@ -28,7 +28,7 @@ maintainer="Duncaen <duncaen@voidlinux.org>"
 license="BSD-3-Clause"
 homepage="https://www.chromium.org/"
 distfiles="https://commondatastorage.googleapis.com/chromium-browser-official/${pkgname}-${version}.tar.xz"
-checksum=f4a78c1955dac4354d57ab45e93051fcda50fc5fccd681457f8116630746dffe
+checksum=7ccef206f8c99e6a17b927b1b6d8018da808d75a0f46998282e0ca6cb80fe4c9
 
 lib32disabled=yes
 

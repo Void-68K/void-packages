@@ -1,6 +1,6 @@
 # Template file for 'praat'
 pkgname=praat
-version=6.4.07
+version=6.4.13
 revision=1
 create_wrksrc=yes
 hostmakedepends="pkg-config"
@@ -13,7 +13,7 @@ license="GPL-2.0-or-later"
 homepage="https://www.fon.hum.uva.nl/praat/"
 changelog="https://www.fon.hum.uva.nl/praat/manual/What_s_new_.html"
 distfiles="https://github.com/praat/praat/archive/v${version}.tar.gz"
-checksum=56b42f59c139cd0a4386947abdfd607db93c91ad4e7b863631e4b918bd63b76d
+checksum=944cc0e4699f07d48865110752632b1bb410764799d09bb436c671e49ad045bb
 
 # there are a number of pre-defined Makefiles for certain configurations
 # build options are used to choose which one to use among a selected few

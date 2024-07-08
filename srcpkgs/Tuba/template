@@ -1,6 +1,6 @@
 # Template file for 'Tuba'
 pkgname=Tuba
-version=0.6.3
+version=0.8.1
 revision=1
 build_style=meson
 configure_args="-Ddistro=true"
@@ -14,4 +14,4 @@ maintainer="Bnyro <bnyro@tutanota.com>"
 license="GPL-3.0-only"
 homepage="https://tuba.geopjr.dev/"
 distfiles="https://github.com/GeopJr/Tuba/archive/refs/tags/v${version}.tar.gz"
-checksum=11a1254fa965b3d229856300af0e2e7cdc122f25e51d0379e485d7266c84be0a
+checksum=2c52448061bc82e2a7690faa2bd16e1d3cb506bd0b1a2b1ed32623051710ba06

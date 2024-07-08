@@ -1,13 +1,14 @@
 # Template file for 'breeze-gtk'
 pkgname=breeze-gtk
-version=5.27.11
+version=6.1.1
 revision=1
 build_style=cmake
-hostmakedepends="extra-cmake-modules sassc python3 python3-cairo qt5-devel"
-makedepends="qt5-devel breeze"
+hostmakedepends="extra-cmake-modules sassc python3 python3-cairo
+ qt6-base qt6-tools"
+makedepends="qt6-base-devel libplasma-devel breeze-qt6"
 short_desc="GTK Theme Built to Match KDE's Breeze"
 maintainer="John <me@johnnynator.dev>"
 license="LGPL-2.1-or-later"
 homepage="https://invent.kde.org/plasma/breeze-gtk"
 distfiles="${KDE_SITE}/plasma/${version}/${pkgname}-${version}.tar.xz"
-checksum=dcbdd3bf87404dfeb5b05e220d0a8dd5b4168c7d4ce7650679f28c5accf67fee
+checksum=a79efceccee85ad95484f8e64abf0922d8d4a0cb5475edd10024af947c4e8ece

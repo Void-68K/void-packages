@@ -1,6 +1,6 @@
 # Template file for 'gtk+3'
 pkgname=gtk+3
-version=3.24.41
+version=3.24.42
 revision=1
 build_style=meson
 build_helper="gir"
@@ -32,7 +32,7 @@ maintainer="Enno Boland <gottox@voidlinux.org>"
 license="LGPL-2.1-or-later"
 homepage="https://www.gtk.org/"
 distfiles="${GNOME_SITE}/gtk+/${version%.*}/gtk+-${version}.tar.xz"
-checksum=47da61487af3087a94bc49296fd025ca0bc02f96ef06c556e7c8988bd651b6fa
+checksum=50f89f615092d4dd01bbd759719f8bd380e5f149f6fd78a94725e2de112377e2
 make_check_pre="xvfb-run dbus-run-session"
 # _broken_tests=""
 
@@ -87,12 +87,17 @@ gtk+3-demo_package() {
 	short_desc+=" - demonstration application"
 	pkg_install() {
 		vmove usr/bin/gtk3-demo
+		vmove usr/bin/gtk3-icon-browser
 		vmove usr/bin/gtk3-widget-factory
 		vmove usr/bin/gtk3-demo-application
+		vmove usr/share/man/man1/gtk3-demo.1
 		vmove usr/share/man/man1/gtk3-widget-factory.1
+		vmove usr/share/man/man1/gtk3-icon-browser.1
+		vmove usr/share/man/man1/gtk3-demo-application.1
 		vmove usr/share/gtk-3.0/gtkbuilder.rng
 		vmove usr/share/glib-2.0/schemas/org.gtk.Demo.gschema.xml
 		vmove usr/share/applications/gtk3-widget-factory.desktop
+		vmove usr/share/applications/gtk3-icon-browser.desktop
 		vmove usr/share/applications/gtk3-demo.desktop
 		vmove usr/share/icons
 	}
