@@ -72,6 +72,12 @@ shlib_provides="
 	libquadmath.so.0"
 repository=bootstrap
 
+if [ "${XBPS_TARGET_MACHINE%-musl}" = "m68k" ]; then
+	shlib_provides+=" libgcc_s.so.2"
+else
+	shlib_provides+=" libgcc_s.so.1"
+fi
+
 if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
 	provides+=" musl-9999_1 musl-devel-9999_1"
 	conflicts+=" musl>=0"

@@ -8,7 +8,7 @@ version=0.36
 revision=2
 build_style=void-cross
 configure_args="--with-cpu=m68020 --enable-autolink-libatomic"
-hostmakedepends="texinfo tar gcc-objc gcc-go flex perl python3 pkg-config"
+hostmakedepends="texinfo tar gcc-objc flex perl python3 pkg-config"
 makedepends="isl-devel libmpc-devel gmp-devel mpfr-devel
  zlib-devel libzstd-devel"
 depends="${pkgname}-libc-${version}_${revision}"
