@@ -5,8 +5,7 @@ revision=1
 build_style=gnu-configure
 configure_args="--enable-libipq --enable-shared --enable-devel --enable-bpf-compiler"
 hostmakedepends="pkg-config flex"
-makedepends="libpcap-devel libfl-devel libmnl-devel libnfnetlink-devel
- libnetfilter_conntrack-devel libnftnl-devel"
+makedepends="libpcap-devel libfl-devel libmnl-devel libnfnetlink-devel libnftnl-devel"
 checkdepends="python3"
 short_desc="Linux IPv[46] packet filtering ruleset"
 maintainer="Orphaned <orphan@voidlinux.org>"
@@ -22,6 +21,10 @@ alternatives="
  iptables:iptables-restore:/usr/bin/xtables-legacy-multi
  iptables:iptables-save:/usr/bin/xtables-legacy-multi"
 make_check=no #/etc/ethertypes is missing
+
+if [ "${XBPS_TARGET_MACHINE%-musl}" != "m68k" ]; then
+	makedepends+=" libnetfilter_conntrack-devel"
+fi
 
 pre_build() {
 	rm include/linux/types.h

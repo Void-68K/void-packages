@@ -21,7 +21,9 @@ make_dirs="/etc/xbps.d 0755 root root"
 
 LDFLAGS="-ldl -pthread"
 
-if [ "$CHROOT_READY" ]; then
+# FIXME: try to fix gdb so that testsuite can be reenabled again in m68k
+if [ "$CHROOT_READY" ] && [ "${XBPS_TARGET_MACHINE%-musl}" != "m68k" ]; then
+	xbps_enable_tests=1
 	makedepends+=" atf-devel"
 	xbps-tests_package() {
 		short_desc+=" - Kyua testsuite"
@@ -33,7 +35,7 @@ if [ "$CHROOT_READY" ]; then
 fi
 
 do_configure() {
-	./configure --prefix=/usr --sysconfdir=/etc ${CHROOT_READY:+--enable-tests}
+	./configure --prefix=/usr --sysconfdir=/etc ${xbps_enable_tests:+--enable-tests}
 }
 
 post_install() {

@@ -12,6 +12,10 @@ homepage="http://www.netfilter.org/projects/libnetfilter_conntrack/index.html"
 distfiles="http://www.netfilter.org/projects/libnetfilter_conntrack/files/libnetfilter_conntrack-${version}.tar.bz2"
 checksum=67bd9df49fe34e8b82144f6dfb93b320f384a8ea59727e92ff8d18b5f4b579a8
 
+if [ "${XBPS_TARGET_MACHINE%-musl}" = "m68k" ]; then
+	broken="include conflicts that only happens on m68k for some reason"
+fi
+
 libnetfilter_conntrack-devel_package() {
 	depends="${sourcepkg}>=${version}_${revision} libnfnetlink-devel"
 	short_desc+=" -- development files"
