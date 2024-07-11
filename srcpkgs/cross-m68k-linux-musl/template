@@ -13,7 +13,7 @@ makedepends="isl-devel libmpc-devel gmp-devel mpfr-devel
  zlib-devel libzstd-devel"
 depends="${pkgname}-libc-${version}_${revision}"
 short_desc="Void cross toolchain for ${pkgname/cross-}"
-maintainer="Thomas Batten <stenstorpmc@gmail.com>"
+maintainer="leap123 <leap123@canaglie.org>"
 license="GPL-2.0-or-later, GPL-3.0-or-later, MIT"
 homepage="https://www.voidlinux.org/"
 distfiles="

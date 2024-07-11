@@ -2,7 +2,7 @@
 # Don't forget to rebuild 'python3-zstandard' which depends on API version.
 pkgname=zstd
 version=1.5.6
-revision=1
+revision=2
 bootstrap=yes
 makedepends="zlib-devel liblzma-devel liblz4-devel"
 checkdepends="gtest-devel tar"

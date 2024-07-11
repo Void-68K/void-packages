@@ -153,6 +153,7 @@ esac
 case "$XBPS_TARGET_MACHINE" in
 	mips*) ;;
 	riscv*) ;;
+	m68k*) ;;
 	x86_64*|i686) subpackages+=" libitm libitm-devel";;
 	*) subpackages+=" libitm libitm-devel";;
 esac
