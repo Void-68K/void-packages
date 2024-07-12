@@ -49,7 +49,7 @@ post_install() {
 }
 
 mkinitcpio-lvm2_package() {
-	depends="${sourcepkg}>=${version}_${revision} lvm2 thin-provisioning-tools"
+	depends="${sourcepkg}>=${version}_${revision} lvm2 thin-provisioning-tools-legacy"
 	short_desc+=" - lvm2 support"
 	pkg_install() {
 		vinstall ${FILESDIR}/lvm2_hook 644 usr/lib/initcpio/hooks lvm2

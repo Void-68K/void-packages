@@ -11,8 +11,8 @@ configure_args="--disable-selinux --enable-readline --enable-pkgconfig
  --with-default-locking-dir=/run/lock/lvm"
 hostmakedepends="pkg-config"
 makedepends="eudev-libudev-devel libaio-devel libblkid-devel
- readline-devel thin-provisioning-tools"
-depends="thin-provisioning-tools"
+ readline-devel thin-provisioning-tools-legacy"
+depends="thin-provisioning-tools-legacy"
 short_desc="Logical Volume Manager 2 utilities"
 maintainer="Orphaned <orphan@voidlinux.org>"
 license="GPL-2.0-only, LGPL-2.1-only, BSD-2-Clause"

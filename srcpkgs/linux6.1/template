@@ -18,7 +18,7 @@ checksum="2ca1f17051a430f6fed1196e4952717507171acfd97d96577212502703b25deb
 python_version=3
 
 # XXX Restrict archs until a proper <arch>-dotconfig is available in FILESDIR.
-archs="x86_64* i686* aarch64* ppc*"
+archs="x86_64* i686* aarch64* ppc* m68k*"
 
 nodebug=yes  # -dbg package is generated below manually
 nostrip=yes
@@ -79,6 +79,7 @@ do_configure() {
 		ppc64*) arch=powerpc; subarch=ppc64;;
 		ppc*) arch=powerpc; subarch=ppc;;
 		mips*) arch=mips;;
+		m68k*) arch=m68k;;
 	esac
 
 	if [ -f ${FILESDIR}/${subarch:-$arch}-dotconfig-custom ]; then
@@ -104,6 +105,7 @@ do_build() {
 		aarch64*) _args="Image modules dtbs"; arch=arm64;;
 		ppc*) _args="zImage modules"; arch=powerpc;;
 		mips*) _args="uImage modules dtbs"; arch=mips;;
+		m68k*) _args="zImage modules"; arch=m68k;;
 	esac
 	export LDFLAGS=
 	make ARCH=$arch ${_cross} ${makejobs} prepare
@@ -120,6 +122,7 @@ do_install() {
 		aarch64*) arch=arm64;;
 		ppc*) arch=powerpc;;
 		mips*) arch=mips;;
+		m68k*) arch=m68k;;
 	esac
 
 	# Run depmod after compressing modules - makes depmod.sh a noop
@@ -156,6 +159,10 @@ do_install() {
 		mips)
 			vinstall arch/mips/boot/uImage.bin 644 boot uImage-${_kernver}
 			make ${makejobs} ARCH=${subarch:-$arch} INSTALL_DTBS_PATH=${DESTDIR}/boot/dtbs/dtbs-${_kernver} ${_cross} dtbs_install
+			;;
+		m68k)
+			vinstall vmlinux 644 boot vmlinux-${_kernver}
+			/usr/bin/$STRIP ${DESTDIR}/boot/vmlinux-${_kernver}
 			;;
 	esac
 

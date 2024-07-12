@@ -84,6 +84,7 @@ case "$XBPS_TARGET_MACHINE" in
 	arm*)     _arch=arm;      _abi=aapcs ;;
 	aarch64*) _arch=arm;      _abi=aapcs ;;
 	mips*)    _arch=mips32r2; _abi=o32   ;;
+	m68k*)    _arch=generic;  _abi=32    ;;
 	ppc*)     _arch=power;    _abi=sysv  ;;
 	riscv64*) _arch=riscv;    _abi=sysv  ;;
 esac
@@ -115,12 +116,20 @@ do_build() {
 	using python : ${py3_ver} : /usr/bin/python3 : ${XBPS_CROSS_BASE}/${py3_inc} : ${XBPS_CROSS_BASE}/${py3_lib} ;
 
 	__EOF
-	./b2 ${makejobs} \
-		--user-config=${wrksrc}/user-config.jam \
-		--toolset=gcc abi=${_abi} architecture=${_arch} \
-		python=${py3_ver} release \
-		cxxflags="${CXXFLAGS}" linkflags="${LDFLAGS}" \
-		threading=multi runtime-link=shared link=shared,static
+	if [ "${XBPS_TARGET_MACHINE%-musl}" = "m68k" ]; then
+		./b2 ${makejobs} \
+			--user-config=${wrksrc}/user-config.jam \
+			--toolset=gcc python=${py3_ver} release \
+			cxxflags="${CXXFLAGS}" linkflags="${LDFLAGS}" \
+			threading=multi runtime-link=shared link=shared,static
+	else
+		./b2 ${makejobs} \
+			--user-config=${wrksrc}/user-config.jam \
+			--toolset=gcc abi=${_abi} architecture=${_arch} \
+			python=${py3_ver} release \
+			cxxflags="${CXXFLAGS}" linkflags="${LDFLAGS}" \
+			threading=multi runtime-link=shared link=shared,static
+	fi
 }
 
 do_check() {
@@ -151,24 +160,41 @@ do_check() {
 		esac
 		_component="boost::$_component"
 		msg_normal "Testing: $_component\n"
-		./b2 $_testcase/test \
-			--user-config=${wrksrc}/user-config.jam \
-			--toolset=gcc abi=${_abi} architecture=${_arch} \
-			python=${py3_ver} release warnings-as-errors=off \
-			cxxflags="${CXXFLAGS}" linkflags="${LDFLAGS}" \
-			threading=multi ||
-		msg_error "do_check: ${_component}: failure\n"
+		if [ "${XBPS_TARGET_MACHINE%-musl}" = "m68k" ]; then
+			./b2 $_testcase/test \
+				--user-config=${wrksrc}/user-config.jam \
+				--toolset=gcc python=${py3_ver} release warnings-as-errors=off \
+				cxxflags="${CXXFLAGS}" linkflags="${LDFLAGS}" \
+				threading=multi ||
+			msg_error "do_check: ${_component}: failure\n"
+		else
+			./b2 $_testcase/test \
+				--user-config=${wrksrc}/user-config.jam \
+				--toolset=gcc abi=${_abi} architecture=${_arch} \
+				python=${py3_ver} release warnings-as-errors=off \
+				cxxflags="${CXXFLAGS}" linkflags="${LDFLAGS}" \
+				threading=multi ||
+			msg_error "do_check: ${_component}: failure\n"
+		fi
 	done
 }
 
 do_install() {
 	# Install headers/libs
-	./b2 --prefix=${DESTDIR}/usr abi=${_abi} architecture=${_arch} \
-		--user-config=${wrksrc}/user-config.jam \
-		cxxflags="${CXXFLAGS}" linkflags="${LDFLAGS}" \
-		python=${py3_ver} release \
-		threading=multi runtime-link=shared link=shared,static \
-		install
+	if [ "${XBPS_TARGET_MACHINE%-musl}" = "m68k" ]; then
+		./b2 --prefix=${DESTDIR}/usr --user-config=${wrksrc}/user-config.jam \
+			cxxflags="${CXXFLAGS}" linkflags="${LDFLAGS}" \
+			python=${py3_ver} release \
+			threading=multi runtime-link=shared link=shared,static \
+			install
+	else
+		./b2 --prefix=${DESTDIR}/usr abi=${_abi} architecture=${_arch} \
+			--user-config=${wrksrc}/user-config.jam \
+			cxxflags="${CXXFLAGS}" linkflags="${LDFLAGS}" \
+			python=${py3_ver} release \
+			threading=multi runtime-link=shared link=shared,static \
+			install
+	fi
 
 	# Install Boost.Build stuff.
 	# XXX: make bjam a compat symlink to b2
