@@ -62,8 +62,8 @@ libcc1.so.0 gcc-6.2.1_1
 libcc1plugin.so.0 gcc-6.2.1_1
 libitm.so.1 libitm-4.7.3_1
 liblto_plugin.so.0 gcc-4.7.3_1
-#libgcc_s.so.1 libgcc-4.4.0_1
-libgcc_s.so.2 libgcc-4.4.0_1
+libgcc_s.so.1 libgcc-4.4.0_1
+libgcc_s.so.2 libgcc-4.4.0_1 m68k
 libgo.so.22 libgo-13.2.0_1
 libgccjit.so.0 libgccjit-10.2.1pre1_1
 libperl.so.5.38 perl-5.38.0_1

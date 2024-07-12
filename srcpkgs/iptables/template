@@ -1,7 +1,7 @@
 # Template file for 'iptables'
 pkgname=iptables
 version=1.8.10
-revision=1
+revision=2
 build_style=gnu-configure
 configure_args="--enable-libipq --enable-shared --enable-devel --enable-bpf-compiler"
 hostmakedepends="pkg-config flex"
@@ -22,7 +22,7 @@ alternatives="
  iptables:iptables-save:/usr/bin/xtables-legacy-multi"
 make_check=no #/etc/ethertypes is missing
 
-if [ "${XBPS_TARGET_MACHINE%-musl}" != "m68k" ]; then
+if [ "${XBPS_TARGET_MACHINE}" != "m68k-musl" ]; then
 	makedepends+=" libnetfilter_conntrack-devel"
 fi
 
