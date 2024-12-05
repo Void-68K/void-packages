@@ -1,6 +1,6 @@
 # Template file for 'gping'
 pkgname=gping
-version=1.16.1
+version=1.18.0
 revision=1
 build_style=cargo
 make_install_args="--path gping"
@@ -10,7 +10,7 @@ maintainer="icp <pangolin@vivaldi.net>"
 license="MIT"
 homepage="https://crates.io/crates/gping"
 distfiles="https://github.com/orf/gping/archive/refs/tags/gping-v${version}.tar.gz"
-checksum=557dad6e54b5dd23f88224ea7914776b7636672f237d9cbbea59972235ca89a8
+checksum=a76e09619831c0f2bb95f505a92c1332de89c3c43383b4d832a69afcb0fafd4c
 
 post_install() {
 	vlicense LICENSE

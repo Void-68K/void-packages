@@ -1,6 +1,6 @@
 # Template file for 'kf6-kcmutils'
 pkgname=kf6-kcmutils
-version=6.3.0
+version=6.8.0
 revision=1
 build_style=cmake
 build_helper=qemu
@@ -16,7 +16,7 @@ maintainer="John <me@johnnynator.dev>"
 license="LGPL-2.1-or-later"
 homepage="https://invent.kde.org/frameworks/kcmutils"
 distfiles="${KDE_SITE}/frameworks/${version%.*}/${pkgname#kf6-}-${version}.tar.xz"
-checksum=9998b08ce423c9e59cdcc126a7475359a0c4fbe6b0400f44410c8a5cb6928e40
+checksum=f8106c83ef85a1fc9b4185b81260048ebd8a64cdf05c8d0272ff83d6665cb1c0
 
 kf6-kcmutils-devel_package() {
 	depends="$makedepends ${sourcepkg}>=${version}_${revision}"

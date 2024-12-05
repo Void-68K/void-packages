@@ -1,6 +1,6 @@
 # Template file for 'gnucash'
 pkgname=gnucash
-version=5.6
+version=5.9
 revision=1
 build_style=cmake
 make_check_target=check
@@ -17,7 +17,7 @@ license="GPL-2.0-or-later"
 homepage="http://www.gnucash.org"
 changelog="https://raw.githubusercontent.com/Gnucash/gnucash/stable/NEWS"
 distfiles="https://github.com/Gnucash/gnucash/releases/download/${version}/gnucash-${version}.tar.gz"
-checksum=50aebe914da600003c3b668c6a0b86df3d583a200c378f0f16658bec299bbbd3
+checksum=35375b2b1affe2a7e46becefb9e1205f432262c6ed0c7baa72f41b3b13f7235d
 
 pycompile_dirs="usr/share/gnucash/python"
 conf_files="/etc/gnucash/environment"

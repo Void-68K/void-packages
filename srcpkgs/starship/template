@@ -1,6 +1,6 @@
 # Template file for 'starship'
 pkgname=starship
-version=1.19.0
+version=1.21.1
 revision=1
 build_style=cargo
 build_helper=qemu
@@ -14,7 +14,7 @@ license="ISC"
 homepage="https://starship.rs"
 changelog="https://raw.githubusercontent.com/starship/starship/master/CHANGELOG.md"
 distfiles="https://github.com/starship/starship/archive/refs/tags/v${version}.tar.gz"
-checksum=cf789791b5c11d6d7a00628590696627bb8f980e3d7c7a0200026787b08aba37
+checksum=f543dfa3229441ca2a55b8a625ce4bad5756a896378b019f4d0f0e00cf34dcc8
 make_check_pre="env HOME=${wrksrc}/fake-home"
 
 pre_check() {

@@ -1,28 +1,24 @@
 # Template file for 'eza'
 pkgname=eza
-version=0.18.21
+version=0.20.10
 revision=1
 build_style=cargo
 hostmakedepends="pkg-config"
-makedepends="libgit2-devel"
-short_desc="Modern, maintained replacement for ls"
+makedepends="libgit2-1.8-devel"
+short_desc="Modern replacement for ls"
 maintainer="tranzystorekk <tranzystorek.io@protonmail.com>"
-license="MIT"
+license="EUPL-1.2"
 homepage="https://eza.rocks"
 changelog="https://raw.githubusercontent.com/eza-community/eza/main/CHANGELOG.md"
 distfiles="https://github.com/eza-community/eza/archive/refs/tags/v${version}.tar.gz
  https://github.com/eza-community/eza/releases/download/v${version}/man-${version}.tar.gz"
-checksum="53cee12706be2b5bedcf40b97e077a18b254f0f53f1aee52d1d74136466045bc
- f756c1c20dbf730c9c99295742abd6adc194164723ff8531107feb3259fbe100"
+checksum="dbeba82ed85c18776aac20a4f91429bd3ab7e1bd3734344cd247e8f646516a13
+ d875baa4309eb539e5478f9d7b39cc8e007881b6bdb30a81d7811ab29dc90896"
 
 skip_extraction="man-${version}.tar.gz"
 
 post_extract() {
 	vsrcextract -C manpages --strip-components=3 man-${version}.tar.gz
-}
-
-post_patch() {
-	cargo update --package git2@0.19.0 --precise 0.18.3
 }
 
 post_install() {
@@ -34,7 +30,7 @@ post_install() {
 		vman ${manpage}
 	done
 
-	vlicense LICENCE
+	vlicense LICENSE.txt
 
 	ln -s eza ${DESTDIR}/usr/bin/exa
 }
